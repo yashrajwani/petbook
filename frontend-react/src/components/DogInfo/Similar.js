@@ -11,14 +11,23 @@ class Similar extends Component {
     }
 
     componentDidMount() {
-        const HOSTNAME_TAG = "http://127.0.0.1:8000"
-        let BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
-        if(BASE_API_URL.includes(HOSTNAME_TAG)){
-        //window.location.hostname
-        BASE_API_URL = BASE_API_URL.replace(HOSTNAME_TAG, window.location.hostname);
-        }
+        // const HOSTNAME_TAG = "http://127.0.0.1:8000"
+        // let BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+        // if(BASE_API_URL.includes(HOSTNAME_TAG)){
+        // //window.location.hostname
+        // BASE_API_URL = BASE_API_URL.replace(HOSTNAME_TAG, window.location.hostname);
+        // }
 
-        fetch(`${BASE_API_URL}/dogs/similar/${this.state.id}`)
+        // fetch(`${BASE_API_URL}/dogs/similar/${this.state.id}`)
+        // .then(response => response.json())
+        // .then(dogs => {
+        //     this.setState({ dogs: dogs.data})
+        // })
+
+        const HOSTNAME_TAG = "http://127.0.0.1:8000"
+        
+
+        fetch(`${HOSTNAME_TAG}/dogs/similar/${this.state.id}`)
         .then(response => response.json())
         .then(dogs => {
             this.setState({ dogs: dogs.data})

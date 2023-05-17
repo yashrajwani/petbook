@@ -8,7 +8,7 @@ import random
 from transformers import GPT2Config, GPT2DoubleHeadsModel, GPT2Tokenizer
 from chat_helper import model_utils
 
-trained_model_path = "../persistent-folder/data/final_gpt2doublehead"
+trained_model_path = "/app/persistent-folder/data/final_gpt2doublehead"
 model = None
 tokenizer = None
 dogs_memos = None
@@ -38,8 +38,8 @@ def generate_persona(dog_data):
     personality = ['My name is {}.'.format(dog_data["AnimalName"]),
     'My gender is {}.'.format(dog_data["AnimalSex"]),
     'My weight is {}.'.format(dog_data["AnimalCurrentWeightPounds"]),
-    # 'I am {} years old.'.format(dog_data["Age"]),
-    # 'My age is {}.'.format(dog_data["Age"]),
+    'I am {} years old.'.format(dog_data["Age"]),
+    'My age is {}.'.format(dog_data["Age"]),
     'My breed is {}.'.format(dog_data["AnimalBreed"]),
     'My color is {}.'.format(dog_data["AnimalColor"]),
     ]
@@ -85,3 +85,4 @@ def chat_with_dog(chat: dict):
     return {
         "response_message": out_text
     }
+

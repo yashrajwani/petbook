@@ -4,17 +4,17 @@ import pandas as pd
 import numpy as np
 from fastapi import FastAPI, File
 from fastapi.middleware.cors import CORSMiddleware
-from get_data import get_dogs, get_similar_ids
-from get_data import get_similar_dogs
+from get_data import get_dogs, get_similar_ids, get_similar_dogs
 from chat_helper import chat_utils
 from tempfile import TemporaryDirectory
 
 
-local_storage_path = "../persistent-folder/data/"
+local_storage_path = "/app/persistent-folder/data/"
+
 
 # load the dataset
 def load_full_dogs():
-    df = pd.read_csv(local_storage_path + "dogs_subset.csv")
+    df = pd.read_csv(local_storage_path + "full_dogs_data.csv")
     return df
 
 messages_received = []

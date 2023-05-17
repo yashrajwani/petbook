@@ -6,10 +6,11 @@ import tensorflow as tf
 from feature_extractor import FeatureExtractor
 import re
 import os
+from data_loader import ensure_data_loaded
 
-local_storage_path = '../persistent-folder/data/'
-data_path = "../persistent-folder/data/"
-DATA_URL = "https://storage.googleapis.com/artifacts.ai5-c1-group1.appspot.com/data/persistent-folder.zip"
+
+ensure_data_loaded()
+local_storage_path = '/app/persistent-folder/data/'
 
 MODEL_PATH = local_storage_path + "vision_model"
 # load the faiss index
@@ -21,7 +22,7 @@ model = tf.keras.models.load_model(MODEL_PATH)
 fe = FeatureExtractor(model)
 
 # load utility dataset
-features_df = pd.read_csv(local_storage_path + "features_subset_with_id.csv")
+features_df = pd.read_csv(local_storage_path + "features_subset.csv")
 features= features_df.set_index('dog_id')
 # initialize dogs list
 def get_dogs(df, total):
@@ -39,7 +40,7 @@ def get_dogs(df, total):
         dog_dict["weight"] = row["AnimalCurrentWeightPounds"]
         dog_dict["breed"] = row["AnimalBreed"]
         dog_dict["color"] = row["AnimalColor"]
-        # dog_dict["age"] = row["Age"]
+        dog_dict["age"] = row["Age"]
         dog_dict["memo_text"] = row["MemoText"]
         dogs.append(dog_dict)
     return dogs[:total]
@@ -71,3 +72,5 @@ def get_similar_dogs(image, k=10):
     print("Similar IDs:")
     print(similar_dog_ids)
     return similar_dog_ids
+
+

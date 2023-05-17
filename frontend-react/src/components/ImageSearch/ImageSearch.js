@@ -27,12 +27,34 @@ class ImageSearch extends Component {
 
   handleSubmit = (e) => {
 
-    const HOSTNAME_TAG = "http://127.0.0.1:8000"
-    let BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
-    if(BASE_API_URL.includes(HOSTNAME_TAG)){
-    //window.location.hostname
-    BASE_API_URL = BASE_API_URL.replace(HOSTNAME_TAG, window.location.hostname);
-    }
+    // const HOSTNAME_TAG = "http://127.0.0.1:8000"
+    // let BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+    // if(BASE_API_URL.includes(HOSTNAME_TAG)){
+    // //window.location.hostname
+    // BASE_API_URL = BASE_API_URL.replace(HOSTNAME_TAG, window.location.hostname);
+    // }
+
+    // e.preventDefault();
+    // console.log(this.state);
+    // let form_data = new FormData();
+    // form_data.append('file', this.state.image);
+    // let url = `${BASE_API_URL}/file`;
+    // axios.post(url, form_data, {
+    //   headers: {
+    //     'content-type': 'multipart/form-data'
+    //   }
+    // })
+    //     .then(res => {
+    //       this.setState({ dogs: res.data.data});
+    //     })
+    //     .catch(err => console.log(err))
+
+    const BASE_API_URL = "http://127.0.0.1:8000"
+    // let BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+    // if(BASE_API_URL.includes(HOSTNAME_TAG)){
+    // //window.location.hostname
+    // BASE_API_URL = BASE_API_URL.replace(HOSTNAME_TAG, window.location.hostname);
+    // }
 
     e.preventDefault();
     console.log(this.state);

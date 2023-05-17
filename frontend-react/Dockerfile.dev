@@ -1,18 +1,21 @@
-FROM node:14.9.0-buster-slim
+# Fetching the latest node image on alpine linux
+FROM node:16.15.0-buster-slim AS development
 
-# Ensure we don't run the app as root.
-RUN set -ex; \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends openssl && \
-    useradd -ms /bin/bash app -d /home/app -G sudo -u 2000 -p "$(openssl passwd -1 Passw0rd)" && \
-    mkdir -p /app && \
-    chown app:app /app
 
-EXPOSE 3000
+# Declaring env
+ENV NODE_ENV development
 
-# Switch to the new user
-USER app
-WORKDIR /app
+# Setting up the work directory
+WORKDIR /react-app
 
-ENTRYPOINT ["/bin/bash"]
+# Installing dependencies
+COPY ./package.json /react-app
+COPY ./package-lock.json /react-app
+
+RUN npm install
+
+# Copying all the files in our project
+COPY . .
+
+# Starting our application
+CMD npm start
