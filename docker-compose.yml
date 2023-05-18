@@ -1,13 +1,14 @@
 --- 
 services: 
-  api-service: 
-    environment:
+  petbook-backend: 
+    environment: 
+      DEV: 10
     image: "yashrajwani/petbook-backend:latest"
     ports: 
       - "8000:8000"
-  frontend-react: 
+  petbook-frontend-prod: 
     depends_on: 
-      - api-service
+      - petbook-backend
     image: "yashrajwani/petbook-frontend-prod:latest"
     ports: 
       - "80:80"
