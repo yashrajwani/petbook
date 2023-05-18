@@ -1,0 +1,14 @@
+--- 
+services: 
+  api-service: 
+    environment:
+    image: "yashrajwani/petbook-backend:v2"
+    ports: 
+      - "8000:8000"
+  frontend-react: 
+    depends_on: 
+      - api-service
+    image: "yashrajwani/petbook-frontend-prod:latest"
+    ports: 
+      - "80:80"
+version: "1"
