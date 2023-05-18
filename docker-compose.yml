@@ -2,7 +2,7 @@
 services: 
   api-service: 
     environment:
-    image: "yashrajwani/petbook-backend:v2"
+    image: "yashrajwani/petbook-backend:latest"
     ports: 
       - "8000:8000"
   frontend-react: 
