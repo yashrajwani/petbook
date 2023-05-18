@@ -11,4 +11,4 @@ services:
     image: "yashrajwani/petbook-frontend-prod:latest"
     ports: 
       - "80:80"
-version: "1"
+version: "3"
