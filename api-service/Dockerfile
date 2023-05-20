@@ -17,15 +17,15 @@ COPY Pipfile Pipfile.lock .
 RUN pip install pipenv && \
     pipenv sync
     
-# RUN pipenv run pip install --no-cache-dir --upgrade -r ./api/requirements.txt
 # RUN pipenv run pip install zipfile && \
 #     pipenv run pip install tarfile && \
 #     pipenv run pip install torch
 
 RUN pipenv run pip install torch
-
-
 COPY ./api ./docker-entrypoint.sh .
+
+RUN pipenv run pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
 EXPOSE 8000
 
 ENTRYPOINT ["/bin/bash","./docker-entrypoint.sh"]

@@ -3,7 +3,7 @@ services:
   petbook-backend: 
     environment: 
       DEV: 10
-    image: "yashrajwani/petbook-backend:v2"
+    image: "yashrajwani/petbook-backend:v3"
     ports: 
       - "8000:8000"
   petbook-frontend-prod: 
