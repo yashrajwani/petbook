@@ -3,13 +3,13 @@ services:
   petbook-backend: 
     environment: 
       DEV: 10
-    image: "yashrajwani/petbook-backend:v3"
+    image: "yashrajwani/petbook-backend:v4"
     ports: 
       - "8000:8000"
   petbook-frontend-prod: 
     depends_on: 
       - petbook-backend
-    image: "yashrajwani/petbook-frontend-prod:latest"
+    image: "yashrajwani/petbook-frontend-prod:v2"
     ports: 
       - "80:80"
 version: "3"
