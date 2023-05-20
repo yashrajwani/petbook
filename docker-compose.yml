@@ -9,7 +9,7 @@ services:
   petbook-frontend-prod: 
     depends_on: 
       - petbook-backend
-    image: "yashrajwani/petbook-frontend-prod:v2"
+    image: "yashrajwani/petbook-frontend-prod:v3"
     ports: 
       - "80:80"
 version: "3"
