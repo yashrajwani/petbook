@@ -7,12 +7,6 @@ class ActionProvider {
     }
 
     helloWorldHandler = (message) => {
-      // let message = "hi"
-      // fetch("http://localhost:8000/chat/")
-      // .then(resp => resp.json())
-      // .then(message => {
-      //   this.setChatbotMessage(this.createChatBotMessage(message.data))
-      // })
       this.setChatbotMessage(this.createChatBotMessage(message))
     }
 

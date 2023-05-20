@@ -2,8 +2,6 @@ import React from 'react'
 import "./DogInfo.css"
 
 const DogProfile = (props) => {
-  console.log("Testing...")
-  console.log(props)
   const { id, name, sex, age, photo_url, weight, color, dob, breed, memo } = props.info;
   return (
     <div>
@@ -24,14 +22,14 @@ const DogProfile = (props) => {
                   <h2 className="f3 white" class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h2>
                 </div>
                 <div class="card-body pt-0">
-                  <table class="table table-bordered center">
+                  <table className="table table-bordered center">
                     <tr>
                       <th width="30%">Breed</th>
                       <td width="2%">:</td>
                       <td>{breed}</td>
                     </tr>
                     <tr>
-                      <th width="30%">Age	</th>
+                      <th width="30%">Age</th>
                       <td width="2%">:</td>
                       <td>{age}</td>
                     </tr>
@@ -64,7 +62,7 @@ const DogProfile = (props) => {
                   <h2 className="f3 white" class="mb-0"><i class="far fa-clone pr-1"></i>About {name}</h2>
                 </div>
                 <div class="card-body pt-0">
-                  <p className="w-70 tc center">{memo}</p>
+                  <p class="w-70  tc memo center">{memo}</p>
                 </div>
               </div>
             </div>
